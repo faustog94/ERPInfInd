@@ -17,6 +17,7 @@ public class Estructura {
     private int idEstructura;
     private int cantidad;
     private boolean activo;
+    private String version;
 
     private int idProducto;
     private Producto producto;
@@ -31,10 +32,11 @@ public class Estructura {
         this.articuloBuscado = false;
     }
 
-    public Estructura(int idEstructura, int cantidad, boolean activo, int idProducto, int idArticulo) {
+    public Estructura(int idEstructura, int cantidad, boolean activo, String version, int idProducto, int idArticulo) {
         this.idEstructura = idEstructura;
         this.cantidad = cantidad;
         this.activo = activo;
+        this.version = version;
         this.idProducto = idProducto;
         this.idArticulo = idArticulo;
         this.productoBuscado = false;
@@ -121,4 +123,12 @@ public class Estructura {
         this.articuloBuscado = articuloBuscado;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+    
 }
