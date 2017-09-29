@@ -51,11 +51,18 @@ public class Queries {
     public static String ARTPROV_MODIFICARARTPROV = "Update ArtProv set descripcion = 'DESC', idProveedor = IDPROV, idArticulo = IDART where idArtProv = IDARTPROV";
     public static String ARTPROV_BAJAARTPROV = "Delete from ArtProv where idArtProv = IDARTPROV";
     public static String ARTPROV_BAJAARTPROVBYPROVEEDOR = "Delete from ArtProv where idProveedor = IDPROV";
-
     public static String ARTPROV_BAJAARTPROVBYARTICULO = "Delete from ArtProv where idArticulo = IDART";
-
     public static String ARTPROV_GETARTPROV = "Select * from ArtProv";
     public static String ARTPROV_GETARTPROVBYPROVEEDOR = "Select * from ArtProv where idProveedor = IDPROV";
     public static String ARTPROV_GETARTPROVBYARTICULO = "Select * from ArtProv where idArticulo = IDART";
     public static String ARTPROV_GETARTPROVBYID = "Select * from ArtProv where idArtProv = IDARTPROV";
+    
+    public static String ESTRUCTURA_ALTAESTRUCTURA = "Insert into Estructura (cantidad, activo, version, idProducto, idArticulo) Values (CANT, ACT, 'VER', IDPROD, IDART)";
+    public static String ESTRUCTURA_MODIFICARESTRUCTURA = "Update Estructura set cantidad = CANT, activo = ACT, version = 'VER', idProducto = IDPROD, idArticulo = IDART where idEstructura = IDEST";
+    public static String ESTRUCTURA_BAJAESTRUCTURA = "Update Estructura activo = 0 where idEstructura = IDEST";
+    public static String ESTRUCTURA_GETESTRUCTURAS = "Select * from Estructura;";
+    public static String ESTRUCTURA_GETESTRUCTURASBYARTICULO = "Select * from Estructura where idArticulo = IDART";
+    public static String ESTRUCTURA_GETESTRUCTURASBYPRODUCTO = "Select * from Estructura where idProducto = IDPROD";
+    public static String ESTRUCTURA_GETESTRUCTURAACTIVABYPRODUCTO = "Select * from Estructura where idProducto = IDPROD and activo = 1";
+    public static String ESTRUCTURA_GETESTRUCTURABYID = "Select * from Estructura where idEstructura = IDEST";
 }
