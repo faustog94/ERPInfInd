@@ -68,4 +68,11 @@ public class Queries {
     
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCION = "Select * from EstadoOrdenProduccion";
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCIONBYID = "Select * from EstadoOrdenProduccion where idEstOP = IDEST";
+    
+    public static String ORDENPRODUCCION_ALTAORDENPRODUCCION = "Insert into OrdenProduccion (fechaPedido, idEstOP) Values ('FECHA', IDEST)";
+    public static String ORDENPRODUCCION_MODIFICARORDENPRODUCCION = "Update OrdenProduccion set fechaPedido = 'FECHA', idEstOP = IDEST where idOrdenProduccion = IDOP";
+    public static String ORDENPRODUCCION_BAJAORDENPRODUCCION = "Update OrdenProduccion set idEstOP = IDEST where idOrdenProduccion = IDOP";
+    public static String ORDENPRODUCCION_GETORDENPRODUCCION = "Select * from OrdenProduccion";
+    public static String ORDENPRODUCCION_GETORDENPRODUCCIONBYESTADO = "Select * from OrdenProduccion where idEstOP = IDEST";
+    public static String ORDENPRODUCCION_GETORDENPRODUCCIONBYID = "Select * from OrdenProduccion where idOrdenProduccion = IDOP";
 }
