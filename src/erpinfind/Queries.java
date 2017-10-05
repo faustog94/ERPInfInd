@@ -75,4 +75,12 @@ public class Queries {
     public static String ORDENPRODUCCION_GETORDENPRODUCCION = "Select * from OrdenProduccion";
     public static String ORDENPRODUCCION_GETORDENPRODUCCIONBYESTADO = "Select * from OrdenProduccion where idEstOP = IDEST";
     public static String ORDENPRODUCCION_GETORDENPRODUCCIONBYID = "Select * from OrdenProduccion where idOrdenProduccion = IDOP";
+    
+    public static String DETALLENORDENPROD_ALTADETALLEORDENPROD = "Insert into DetalleOrdenProd (cantidad, idProducto, idOrdenProduccion) Values (CANT, IDPROD, IDOP)";
+    public static String DETALLENORDENPROD_MODIFICARDETALLEORDENPROD = "Update DetalleOrdenProd set cantidad = CANT, idProducto = IDPROD, idOrdenProduccion = IDOP where idDetalleOrden = IDDET";
+    public static String DETALLENORDENPROD_BAJADETALLEORDENPROD = "";
+    public static String DETALLENORDENPROD_GETDETALLEORDENPROD = "Select * from DetalleOrdenProd";
+    public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYORDENPRODUCCION = "Select * from DetalleOrdenProd where idOrdenProduccion = IDOP";
+    public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYPRODUCTO = "Select * from DetalleOrdenProd where idProducto = IDPROD";
+    public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYID = "Select * from DetalleOrdenProd where idDetalleOrden = IDDET";
 }
