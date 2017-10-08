@@ -101,4 +101,16 @@ public class Queries {
     public static String DETALLERUTA_GETDETALLERUTABYESTRUCTURA = "Select * from DetalleRuta where idEstructura = IDESTR";
     public static String DETALLERUTA_GETDETALLERUTABYID = "Select * from DetalleRuta where idDetalleRuta = IDDET";
     
+    public static String TIPOMATERIALES_GETTIPOMATERIALES = "Select * from TipoMateriales";
+    public static String TIPOMATERIALES_GETTIPOMATERIALESBYID = "Select * from TipoMateriales where idTipoMateriales = IDTM";
+    
+    public static String MATERIALES_ALTAMATERIALES = "Insert into Materiales (cantidad, idDetalleRuta, idArticulo, idTipoMateriales) Values (CANT, IDDET, IDART, IDTM)";
+    public static String MATERIALES_MODIFICARMATERIALES = "Update Materiales set cantidad = CANT, idDetalleRuta = IDDET, idArticulo = IDART, idTipoMateriales = IDTM where idMateriales = IDMAT";
+    public static String MATERIALES_BAJAMATERIALES = "";
+    public static String MATERIALES_GETMATERIALES = "Select * from Materiales";
+    public static String MATERIALES_GETMATERIALESBYDETALLE = "Select * from Materiales where idDetalleRuta = IDDET";
+    public static String MATERIALES_GETMATERIALESBYARTICULO = "Select * from Materiales where idArticulo = IDART";
+    public static String MATERIALES_GETMATERIALESBYTIPO = "Select * from Materiales where idTipoMateriales = IDTM";
+    public static String MATERIALES_GETMATERIALESBYTIPOBYDETALLE = "Select * from Materiales where idTipoMateriales = IDTM and idDetalleRuta = IDDET";
+    public static String MATERIALES_GETMATERIALESBYID = "Select * from Materiales where idMateriales = IDMAT";
 }
