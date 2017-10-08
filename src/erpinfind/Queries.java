@@ -92,4 +92,13 @@ public class Queries {
     public static String RUTAFABRICACION_GETRUTAFABRICACIONBYPRODUCTOACTIVA = "Select * from RutaFabricacion where idProducto = IDPROD and activa = true";
     public static String RUTAFABRICACION_GETRUTAFABRICACIONBYID = "Select * from RutaFabricacion where idRuta = IDRUT";
     
+    public static String DETALLERUTA_ALTADETALLERUTA = "Insert into DetalleRuta (orden, tiempoManoObra, tiempoMaquina, tiempoReposo, idRuta, idCentro, idEstructura) Values (ORD, TMO, TMAQ, TREP, IDRUT, IDCEN, IDESTR)";
+    public static String DETALLERUTA_MODIFICARDETALLERUTA = "Update DetalleRuta set orden = ORD, tiempoManoObra = TMO, tiempoMaquina = TMAQ, tiempoReposo = TREP, idRuta = IDRUT, idCentro = IDCEN, idEstructura = IDESTR where idDetalleRuta = IDDET";
+    public static String DETALLERUTA_BAJADETALLERUTA = "";
+    public static String DETALLERUTA_GETDETALLERUTA = "Select * from DetalleRuta";
+    public static String DETALLERUTA_GETDETALLERUTABYRUTA = "Select * from DetalleRuta where idRuta = IDRUT";
+    public static String DETALLERUTA_GETDETALLERUTABYCENTRO = "Select * from DetalleRuta where idCentro = IDCEN";
+    public static String DETALLERUTA_GETDETALLERUTABYESTRUCTURA = "Select * from DetalleRuta where idEstructura = IDESTR";
+    public static String DETALLERUTA_GETDETALLERUTABYID = "Select * from DetalleRuta where idDetalleRuta = IDDET";
+    
 }
