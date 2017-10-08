@@ -83,4 +83,13 @@ public class Queries {
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYORDENPRODUCCION = "Select * from DetalleOrdenProd where idOrdenProduccion = IDOP";
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYPRODUCTO = "Select * from DetalleOrdenProd where idProducto = IDPROD";
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYID = "Select * from DetalleOrdenProd where idDetalleOrden = IDDET";
+    
+    public static String RUTAFABRICACION_ALTARUTAFABRICACION = "Insert into RutaFabricacion (activa, version, vigenteDesde, idProducto) Values (ACT, 'VER', 'VIG', IDPROD)";
+    public static String RUTAFABRICACION_MODIFICARRUTAFABRICACION = "Update RutaFabricacion set activa = ACT, version = 'VER', vigenteDesde = 'VIG', idProducto = IDPROD where idRuta = IDRUT";
+    public static String RUTAFABRICACION_BAJARUTAFABRICACION = "Update RutaFabricacion set activa = 0 where idRuta = IDRUT";
+    public static String RUTAFABRICACION_GETRUTAFABRICACION = "Select * from RutaFabricacion";
+    public static String RUTAFABRICACION_GETRUTAFABRICACIONBYPRODUCTO = "Select * from RutaFabricacion where idProducto = IDPROD";
+    public static String RUTAFABRICACION_GETRUTAFABRICACIONBYPRODUCTOACTIVA = "Select * from RutaFabricacion where idProducto = IDPROD and activa = true";
+    public static String RUTAFABRICACION_GETRUTAFABRICACIONBYID = "Select * from RutaFabricacion where idRuta = IDRUT";
+    
 }
