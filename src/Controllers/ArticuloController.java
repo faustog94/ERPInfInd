@@ -124,7 +124,7 @@ public class ArticuloController {
         String sql = Queries.ARTICULO_GETARTICULOSBYTIPO;
         sql = sql.replaceAll("IDTIPO", String.valueOf(idTipo));
         try {
-            ResultSet rs = DBConnection.execSelectSQL(Queries.ARTICULO_GETARTICULOS);
+            ResultSet rs = DBConnection.execSelectSQL(sql);
             while (rs.next()) {
                 //int idArticulo, String codArticulo, String descripcion, boolean activo, String unidadMedida, int idTipoArticulo
                 int idArticulo = rs.getInt("idArticulo");
@@ -145,7 +145,7 @@ public class ArticuloController {
     public static ArrayList<Articulo> getArticulosActivos(){
     ArrayList<Articulo> articulos = new ArrayList();
         try {
-            ResultSet rs = DBConnection.execSelectSQL(Queries.ARTICULO_GETARTICULOS);
+            ResultSet rs = DBConnection.execSelectSQL(Queries.ARTICULO_GETARTICULOSACTIVOS);
             while (rs.next()) {
                 //int idArticulo, String codArticulo, String descripcion, boolean activo, String unidadMedida, int idTipoArticulo
                 int idArticulo = rs.getInt("idArticulo");

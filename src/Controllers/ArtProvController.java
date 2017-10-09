@@ -28,7 +28,7 @@ public class ArtProvController {
     }
 
     public static void modificarArtProv(int idArtProv, String descripcion, int idProveedor, int idArticulo) {
-        String sql = Queries.ARTPROV_ALTAARTPROV;
+        String sql = Queries.ARTPROV_MODIFICARARTPROV;
         sql = sql.replaceAll("IDARTPROV", String.valueOf(idArtProv));
         sql = sql.replaceAll("DESC", descripcion);
         sql = sql.replaceAll("IDPROV", String.valueOf(idProveedor));

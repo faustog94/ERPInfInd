@@ -29,7 +29,7 @@ public class MaterialesController {
         DBConnection.execSQL(sql);
     }
     public static void modificarMateriales(int idMateriales, int cantidad, int idDetalleRuta, int idArticulo, int idTipoMateriales){
-        String sql = Queries.MATERIALES_ALTAMATERIALES;
+        String sql = Queries.MATERIALES_MODIFICARMATERIALES;
         sql = sql.replaceAll("CANT", String.valueOf(cantidad));
         sql = sql.replaceAll("IDDET", String.valueOf(idDetalleRuta));
         sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
@@ -38,7 +38,9 @@ public class MaterialesController {
 
         DBConnection.execSQL(sql);
     }
-    //public static void bajaMateriales(){}
+    public static void bajaMateriales(int idMateriales){
+
+    }
     
     public static ArrayList<Materiales> getMateriales() {
         ArrayList<Materiales> materiales = new ArrayList();
@@ -83,7 +85,7 @@ public class MaterialesController {
     }
     public static ArrayList<Materiales> getMaterialesByArticulo(int idArticulo){
         ArrayList<Materiales> materiales = new ArrayList();
-        String sql = Queries.MATERIALES_GETMATERIALESBYDETALLE;
+        String sql = Queries.MATERIALES_GETMATERIALESBYARTICULO;
         sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
         try {
             ResultSet rs = DBConnection.execSelectSQL(sql);

@@ -33,7 +33,7 @@ public class EstructuraController {
 
     public static void modificarEstructura(int idEstructura, int cantidad, boolean activo, String version, int idProducto, int idArticulo) {
         //CANT, ACT, 'VER', IDPROD, IDART
-        String sql = Queries.ESTRUCTURA_ALTAESTRUCTURA;
+        String sql = Queries.ESTRUCTURA_MODIFICARESTRUCTURA;
         sql = sql.replaceAll("CANT", String.valueOf(cantidad));
         sql = sql.replaceAll("ACT", String.valueOf(activo));
         sql = sql.replaceAll("VER", version);
@@ -117,7 +117,7 @@ public class EstructuraController {
 
     public static ArrayList<Estructura> getEstructuraActivaByProducto(int idProducto) {
         ArrayList<Estructura> estructuras = new ArrayList();
-        String sql = Queries.ESTRUCTURA_GETESTRUCTURASBYPRODUCTO;
+        String sql = Queries.ESTRUCTURA_GETESTRUCTURAACTIVABYPRODUCTO;
         sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
         try {
             ResultSet rs = DBConnection.execSelectSQL(sql);
