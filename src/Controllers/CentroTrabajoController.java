@@ -37,8 +37,22 @@ public class CentroTrabajoController {
         DBConnection.execSQL(sql);
     }
 
-    public static void bajaCentro() {
+    public static void bajaCentro(int idCentro) {
+        //Debo verificar que no esté en una ruta activa
+        boolean enRutaActiva = DetalleRutaController.centroEstaEnRutaActiva(idCentro);
+        if (enRutaActiva == false){
+            bajaCentroIndividual(idCentro);
+        }
+        else {
+            //Tiene una ruta activa, mostrar error
+        }
+    }
 
+    public static void bajaCentroIndividual(int idCentro){
+        String sql = Queries.CENTROTRABAJO_BAJACENTROINDIVIDUAL;
+        sql = sql.replaceAll("IDCENTRO", String.valueOf(idCentro));
+
+        DBConnection.execSQL(sql);
     }
 
     public static ArrayList<CentroTrabajo> getCentros() {

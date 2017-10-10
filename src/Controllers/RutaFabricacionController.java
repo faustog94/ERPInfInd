@@ -39,7 +39,35 @@ public class RutaFabricacionController {
         
         DBConnection.execSQL(sql);
     }
-    //public static void bajaRutaFabricacion(){}
+
+
+    public static void bajaRutaFabricacion(int idRuta){
+        RutaFabricacion ruta = getRutaFabricacionById(idRuta);
+        int idProducto = ruta.getIdProducto();
+        String version = ruta.getVersion();
+        //Tengo que chequear si existe alguna Orden de Produccion pendiente o en curso.
+        boolean existeOrden = DetalleOrdenProdController.prodTieneOrdenActiva(idProducto);
+        if (existeOrden == false){
+            bajaRutaIndividual(idRuta);
+        }
+        else {
+            //Existe una orden activa, mostrar mensaje de error
+        }
+    }
+
+    public static void bajaRutaIndividual(int idRuta){
+        String sql = Queries.RUTAFABRICACION_BAJARUTAFABRICACIONINDIVIDUAL;
+        sql.replaceAll("IDRUT", String.valueOf(idRuta));
+
+        DBConnection.execSQL(sql);
+    }
+
+    public static void bajaRutasProducto(int idProducto){
+        String sql = Queries.RUTAFABRICACION_BAJARUTASPRODUCTO;
+        sql.replaceAll("IDPROD", String.valueOf(idProducto));
+
+        DBConnection.execSQL(sql);
+    }
 
     public static ArrayList<RutaFabricacion> getRutaFabricacion(){
     ArrayList<RutaFabricacion> rutas = new ArrayList();
@@ -126,5 +154,24 @@ public class RutaFabricacionController {
             ex.printStackTrace();
         }
         return ruta;
+    }
+
+    public static boolean rutaIsActiva(int idRuta){
+        boolean activa = false;
+        String sql = Queries.RUTAFABRICACION_RUTAISACTIVA;
+        sql = sql.replaceAll("IDRUT", String.valueOf(idRuta));
+        try {
+            ResultSet rs = DBConnection.execSelectSQL(sql);
+            while (rs.next()) {
+                int cantidad = rs.getInt("cantidad");
+                if (cantidad > 0){
+                    activa = true;
+                }
+                else {activa = false;}
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return activa;
     }
 }

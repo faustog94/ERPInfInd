@@ -39,7 +39,10 @@ public class MaterialesController {
         DBConnection.execSQL(sql);
     }
     public static void bajaMateriales(int idMateriales){
+        String sql = Queries.MATERIALES_BAJAMATERIALES;
+        sql = sql.replaceAll("IDMAT", String.valueOf(idMateriales));
 
+        DBConnection.execSQL(sql);
     }
     
     public static ArrayList<Materiales> getMateriales() {

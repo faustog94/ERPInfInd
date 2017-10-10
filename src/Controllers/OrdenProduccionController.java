@@ -63,6 +63,30 @@ public class OrdenProduccionController {
         }
         return ordenes;
     }
+
+    public static ArrayList<OrdenProduccion> getOrdenProduccionActiva() {
+        ArrayList<OrdenProduccion> ordenes = new ArrayList();
+        //El id para un estado activo es pendiente o en curso (1, 2)
+        int idEstA = 1;
+        int idEstB = 2;
+        String sql = Queries.ORDENPRODUCCION_GETORDENPRODUCCIONACTIVA;
+        sql = sql.replaceAll("IDESTA", String.valueOf(idEstA));
+        sql = sql.replaceAll("IDESTB", String.valueOf(idEstB));
+        try {
+            ResultSet rs = DBConnection.execSelectSQL(sql);
+            while (rs.next()) {
+                //int idOrdenProduccion, String fechaPedido, int idEstOP
+                int idOrdenProduccion = rs.getInt("idOrdenProduccion");
+                String fechaPedido = rs.getString("fechaPedido");
+                int idEstOP = rs.getInt("idEstOP");
+                OrdenProduccion temp = new OrdenProduccion(idOrdenProduccion, fechaPedido, idEstOP);
+                ordenes.add(temp);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return ordenes;
+    }
     
     public static ArrayList<OrdenProduccion> getOrdenProduccionPendiente() {
         ArrayList<OrdenProduccion> ordenes = new ArrayList();
@@ -167,6 +191,30 @@ public class OrdenProduccionController {
             ex.printStackTrace();
         }
         return orden;
+    }
+
+    public static boolean ordenIsActiva(int idOrdenProduccion){
+        boolean activa = false;
+        //El id para un estado activo es pendiente o en curso (1, 2)
+        int idEstA = 1;
+        int idEstB = 2;
+        String sql = Queries.ORDENPRODUCCION_ORDENISACTIVA;
+        sql = sql.replaceAll("IDESTA", String.valueOf(idEstA));
+        sql = sql.replaceAll("IDESTB", String.valueOf(idEstB));
+        sql = sql.replaceAll("IDOP", String.valueOf(idOrdenProduccion));
+        try {
+            ResultSet rs = DBConnection.execSelectSQL(sql);
+            while (rs.next()) {
+                int cantidad = rs.getInt("cantidad");
+                if (cantidad > 0){
+                    activa = true;
+                }
+                else {activa = false;}
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return activa;
     }
     
 }

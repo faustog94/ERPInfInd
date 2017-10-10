@@ -45,7 +45,25 @@ public class ProductoController {
     }
 
     public static void bajaProducto(int idProducto) {
-    } //debemos chequear que no haya orden de produccion pendiente/en curso. Da de baja a estructuras y rutas.
+        //Tengo que chequear si existe alguna Orden de Produccion pendiente o en curso.
+        boolean existeOrden = DetalleOrdenProdController.prodTieneOrdenActiva(idProducto);
+        if (existeOrden == false){
+            bajaProductoIndividual(idProducto);
+            //doy de baja todas las estructuras y rutas
+            EstructuraController.bajaEstructurasProducto(idProducto);
+            RutaFabricacionController.bajaRutasProducto(idProducto);
+        }
+        else {
+            //Existe una orden activa, mostrar mensaje de error
+        }
+    }
+
+    public static void bajaProductoIndividual(int idProducto){
+        String sql = Queries.PRODUCTO_BAJAPRODUCTOINDIVIDUAL;
+        sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
+
+        DBConnection.execSQL(sql);
+    }
 
     public static ArrayList<Producto> getProductos() {
         ArrayList<Producto> productos = new ArrayList();

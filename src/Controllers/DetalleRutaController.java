@@ -6,6 +6,7 @@
 package Controllers;
 
 import Models.DetalleRuta;
+import Models.RutaFabricacion;
 import erpinfind.DBConnection;
 import erpinfind.Queries;
 import java.sql.ResultSet;
@@ -46,7 +47,7 @@ public class DetalleRutaController {
         DBConnection.execSQL(sql);
     }
 
-    //public static void bajaDetalleRuta(int idDetalleRuta){}
+    //public static void bajaDetalleRuta(int idDetalleRuta){} //NO DEBERÍA TENER BAJA.
     
     public static ArrayList<DetalleRuta> getDetalleRuta() {
         ArrayList<DetalleRuta> detalles = new ArrayList();
@@ -177,5 +178,17 @@ public class DetalleRutaController {
             ex.printStackTrace();
         }
         return detalle;
+    }
+
+    public static boolean centroEstaEnRutaActiva(int idCentro){
+        boolean rutaActiva = false;
+        ArrayList<DetalleRuta> detalles = getDetalleRutaByCentro(idCentro);
+        for (int i = 0 ; i < detalles.size() ; i++){
+            int idRuta = detalles.get(i).getIdRuta();
+            if(RutaFabricacionController.rutaIsActiva(idCentro)){
+                rutaActiva = true;
+            }
+        }
+        return rutaActiva;
     }
 }

@@ -38,7 +38,12 @@ public class DetalleOrdenProdController {
 
         DBConnection.execSQL(sql);
     }
-    //public static void bajaDetalleOrdenProd(){}
+    public static void bajaDetalleOrdenProd(int idDetalleOrden){
+        String sql = Queries.DETALLENORDENPROD_BAJADETALLEORDENPROD;
+        sql = sql.replaceAll("IDDET", String.valueOf(idDetalleOrden));
+
+        DBConnection.execSQL(sql);
+    }
 
     public static ArrayList<DetalleOrdenProd> getDetalleOrdenProd() {
         ArrayList<DetalleOrdenProd> detalles = new ArrayList();
@@ -123,5 +128,17 @@ public class DetalleOrdenProdController {
             ex.printStackTrace();
         }
         return detalle;
+    }
+
+    public static boolean prodTieneOrdenActiva(int idProducto){
+        boolean tieneOrdenActiva = false;
+        ArrayList<DetalleOrdenProd> detalles = getDetalleOrdenProdbyProducto(idProducto);
+        for (int i = 0 ; i < detalles.size() ; i++){
+            int idOrdenProduccion = detalles.get(i).getIdOrdenProduccion();
+            if(OrdenProduccionController.ordenIsActiva(idOrdenProduccion)){
+                tieneOrdenActiva = true;
+            }
+        }
+        return tieneOrdenActiva;
     }
 }

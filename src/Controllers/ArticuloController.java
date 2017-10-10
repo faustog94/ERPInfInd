@@ -43,8 +43,22 @@ public class ArticuloController {
         DBConnection.execSQL(sql);
     }
 
-    public static void bajaArticulo(int idArticulo) { //debemos chequear que no pertenece a una estructura de producto (Controlador de Estructura de Producto)
+    public static void bajaArticulo(int idArticulo) {
+        //debemos chequear que no pertenece a una estructura de producto
+        boolean existeEstructura = EstructuraController.existeEstructuraconArticulo(idArticulo);
+        if (existeEstructura == false){
+            bajaArticuloIndividual(idArticulo);
+        }
+        else{
+            //Existe una estructura activa que utiliza el articulo, mostrar error
+        }
+    }
 
+    public static void bajaArticuloIndividual(int idArticulo){
+        String sql = Queries.ARTICULO_BAJAARTICULOINDIVIDUAL;
+        sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
+
+        DBConnection.execSQL(sql);
     }
 
     public static ArrayList<Articulo> getArticulos() {
