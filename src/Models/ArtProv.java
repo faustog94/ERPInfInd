@@ -15,6 +15,7 @@ import Controllers.ProveedorController;
 public class ArtProv {
     private int idArtProv;
     private String descripcion;
+    private double precio;
     
     //Relaciones
     private int idProveedor;
@@ -30,11 +31,12 @@ public class ArtProv {
         this.articuloBuscado = false;
     }
 
-    public ArtProv(int idArtProv, String descripcion, int idProveedor, int idArticulo) {
+    public ArtProv(int idArtProv, String descripcion, int idProveedor, int idArticulo, double precio) {
         this.idArtProv = idArtProv;
         this.descripcion = descripcion;
         this.idProveedor = idProveedor;
         this.idArticulo = idArticulo;
+        this.precio = precio;
         this.proveedorBuscado = false;
         this.articuloBuscado = false;
     }
@@ -93,6 +95,14 @@ public class ArtProv {
 
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
     
     

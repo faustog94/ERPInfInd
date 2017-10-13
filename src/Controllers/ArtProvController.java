@@ -18,21 +18,24 @@ import java.util.ArrayList;
  */
 public class ArtProvController {
 
-    public static void altaArtProv(String descripcion, int idProveedor, int idArticulo) {
+    public static void altaArtProv(String descripcion, int idProveedor, int idArticulo, double precio) {
         String sql = Queries.ARTPROV_ALTAARTPROV;
         sql = sql.replaceAll("DESC", descripcion);
         sql = sql.replaceAll("IDPROV", String.valueOf(idProveedor));
         sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
+        sql = sql.replaceAll("PREC", String.valueOf(precio));
 
         DBConnection.execSQL(sql);
     }
 
-    public static void modificarArtProv(int idArtProv, String descripcion, int idProveedor, int idArticulo) {
+    public static void modificarArtProv(int idArtProv, String descripcion, int idProveedor, int idArticulo, double precio) {
         String sql = Queries.ARTPROV_MODIFICARARTPROV;
         sql = sql.replaceAll("IDARTPROV", String.valueOf(idArtProv));
         sql = sql.replaceAll("DESC", descripcion);
         sql = sql.replaceAll("IDPROV", String.valueOf(idProveedor));
         sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
+        sql = sql.replaceAll("PREC", String.valueOf(precio));
+
         DBConnection.execSQL(sql);
     }
 
@@ -66,8 +69,9 @@ public class ArtProvController {
                 String descripcion = rs.getString("descripcion");
                 int idProveedor = rs.getInt("idProveedor");
                 int idArticulo = rs.getInt("idArticulo");
+                double precio = rs.getDouble("precio");
 
-                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo);
+                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo, precio);
                 artprovs.add(temp);
             }
         } catch (SQLException ex) {
@@ -86,8 +90,9 @@ public class ArtProvController {
                 int idArtProv = rs.getInt("idArtProv");
                 String descripcion = rs.getString("descripcion");
                 int idArticulo = rs.getInt("idArticulo");
+                double precio = rs.getDouble("precio");
 
-                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo);
+                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo, precio);
                 artprovs.add(temp);
             }
         } catch (SQLException ex) {
@@ -106,8 +111,9 @@ public class ArtProvController {
                 int idArtProv = rs.getInt("idArtProv");
                 String descripcion = rs.getString("descripcion");
                 int idProveedor = rs.getInt("idProveedor");
+                double precio = rs.getDouble("precio");
 
-                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo);
+                ArtProv temp = new ArtProv(idArtProv, descripcion, idProveedor, idArticulo, precio);
                 artprovs.add(temp);
             }
         } catch (SQLException ex) {
@@ -126,11 +132,13 @@ public class ArtProvController {
             String descripcion = rs.getString("descripcion");
             int idProveedor = rs.getInt("idProveedor");
             int idArticulo = rs.getInt("idArticulo");
+            double precio = rs.getDouble("precio");
 
             artprov.setIdArtProv(idArtProv);
             artprov.setDescripcion(descripcion);
             artprov.setIdProveedor(idProveedor);
             artprov.setIdArticulo(idArticulo);
+            artprov.setPrecio(precio);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

@@ -48,8 +48,8 @@ public class Queries {
     public static String PROVEEDOR_GETPROVEEDORBYID = "Select * from Proveedores where idProveedor = IDPROV";
     public static String PROVEEDOR_GETPROVEEDORESACTIVOS = "Select * from Proveedores where activo = 1";
 
-    public static String ARTPROV_ALTAARTPROV = "Insert into ArtProv (descripcion, idProveedor, idArticulo) Values ('DESC', IDPROV, IDART)";
-    public static String ARTPROV_MODIFICARARTPROV = "Update ArtProv set descripcion = 'DESC', idProveedor = IDPROV, idArticulo = IDART where idArtProv = IDARTPROV";
+    public static String ARTPROV_ALTAARTPROV = "Insert into ArtProv (descripcion, idProveedor, idArticulo, precio) Values ('DESC', IDPROV, IDART, PREC)";
+    public static String ARTPROV_MODIFICARARTPROV = "Update ArtProv set descripcion = 'DESC', idProveedor = IDPROV, idArticulo = IDART, precio = PREC where idArtProv = IDARTPROV";
     public static String ARTPROV_BAJAARTPROV = "Delete from ArtProv where idArtProv = IDARTPROV";
     public static String ARTPROV_BAJAARTPROVBYPROVEEDOR = "Delete from ArtProv where idProveedor = IDPROV";
     public static String ARTPROV_BAJAARTPROVBYARTICULO = "Delete from ArtProv where idArticulo = IDART";
