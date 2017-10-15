@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 15, 2017 at 04:09 AM
+-- Generation Time: Oct 15, 2017 at 04:18 AM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.21
 
@@ -142,7 +142,8 @@ CREATE TABLE `Maquinaria` (
   `idMaquinaria` int(10) NOT NULL,
   `codMaquinaria` varchar(50) NOT NULL,
   `descripcion` varchar(100) NOT NULL,
-  `idCentro` int(10) NOT NULL
+  `idCentro` int(10) NOT NULL,
+  `activa` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
