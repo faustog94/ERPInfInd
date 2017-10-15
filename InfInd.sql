@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
--- http://www.phpmyadmin.net
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 08, 2017 at 10:08 
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+-- Host: db
+-- Generation Time: Oct 15, 2017 at 04:09 AM
+-- Server version: 5.7.19
+-- PHP Version: 7.0.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -44,6 +46,7 @@ CREATE TABLE `Articulo` (
 CREATE TABLE `ArtProv` (
   `idArtProv` int(10) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
+  `precio` double NOT NULL,
   `idProveedor` int(10) NOT NULL,
   `idArticulo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,7 +61,9 @@ CREATE TABLE `CentroTrabajo` (
   `idCentro` int(10) NOT NULL,
   `codCentro` varchar(50) NOT NULL,
   `descripcion` varchar(50) NOT NULL,
-  `activo` tinyint(1) NOT NULL
+  `activo` tinyint(1) NOT NULL,
+  `costoHoraMaquinaria` double NOT NULL,
+  `costoHoraManoObra` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -125,6 +130,19 @@ CREATE TABLE `Estructura` (
   `version` varchar(10) NOT NULL,
   `idProducto` int(10) NOT NULL,
   `idArticulo` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Maquinaria`
+--
+
+CREATE TABLE `Maquinaria` (
+  `idMaquinaria` int(10) NOT NULL,
+  `codMaquinaria` varchar(50) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `idCentro` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -302,6 +320,12 @@ ALTER TABLE `Estructura`
   ADD PRIMARY KEY (`idEstructura`);
 
 --
+-- Indexes for table `Maquinaria`
+--
+ALTER TABLE `Maquinaria`
+  ADD PRIMARY KEY (`idMaquinaria`);
+
+--
 -- Indexes for table `Materiales`
 --
 ALTER TABLE `Materiales`
@@ -358,12 +382,15 @@ ALTER TABLE `TipoProducto`
 -- AUTO_INCREMENT for table `Articulo`
 --
 ALTER TABLE `Articulo`
-  MODIFY `idArticulo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idArticulo` int(10) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `Estructura`
 --
 ALTER TABLE `Estructura`
   MODIFY `idEstructura` int(10) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
