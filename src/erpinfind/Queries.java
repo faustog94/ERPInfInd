@@ -34,10 +34,11 @@ public class Queries {
     public static String PRODUCTO_GETPRODUCTOBYID = "Select * from Producto where idProducto = IDPROD";
     public static String PRODUCTO_GETPRODUCTOBYCOD = "Select * from Producto where codProducto = 'CODPROD'";
 
-    public static String CENTROTRABAJO_ALTACENTRO = "Insert into CentroTrabajo (codCentro, descripcion, activo) values ('CODCENTRO', 'DESC', ACT)";
-    public static String CENTROTRABAJO_MODIFICARCENTRO = "Update CentroTrabajo set codCentro = 'CODCENTRO', descripcion = 'DESC', activo = ACT where idCentro = IDCENTRO";
+    public static String CENTROTRABAJO_ALTACENTRO = "Insert into CentroTrabajo (codCentro, descripcion, activo, costoHoraMaquinaria, costoHoraManoObra) values ('CODCENTRO', 'DESC', ACT, CMAQ, CMO)";
+    public static String CENTROTRABAJO_MODIFICARCENTRO = "Update CentroTrabajo set codCentro = 'CODCENTRO', descripcion = 'DESC', activo = ACT, costoHoraMaquinaria = CMAQ, costoHoraManoObra = CMO where idCentro = IDCENTRO";
     public static String CENTROTRABAJO_BAJACENTROINDIVIDUAL = "Update CentroTrabajo set activo = 0 where idCentro = IDCENTRO";
     public static String CENTROTRABAJO_GETCENTROS = "Select * from CentroTrabajo";
+    public static String CENTROTRABAJO_GETCENTROSACTIVOS = "Select * from CentroTrabajo where activo = true";
     public static String CENTROTRABAJO_GETCENTROBYID = "Select * from CentroTrabajo where idCentro = IDCENTRO";
     public static String CENTROTRABAJO_GETCENTROBYCOD = "Select * from CentroTrabajo where codCentro = 'CODCENTRO'";
 
@@ -123,4 +124,14 @@ public class Queries {
     public static String MATERIALES_GETMATERIALESBYTIPO = "Select * from Materiales where idTipoMateriales = IDTM";
     public static String MATERIALES_GETMATERIALESBYTIPOBYDETALLE = "Select * from Materiales where idTipoMateriales = IDTM and idDetalleRuta = IDDET";
     public static String MATERIALES_GETMATERIALESBYID = "Select * from Materiales where idMateriales = IDMAT";
+
+    public static String MAQUINARIA_ALTAMAQUINARIA = "Insert into Maquinaria (codMaquinaria, descripcion, idCentro, activa) Values ('CODMAQ', 'DESC', IDCEN, ACT)";
+    public static String MAQUINARIA_MODIFICARMAQUINARIA = "Update Maquinaria set codMaquinaria = 'CODMAQ', descripcion = 'DESC', idCentro = IDCEN, activa = ACT where idMaquinaria = IDMAQ";
+    public static String MAQUINARIA_BAJAMAQUINARIA = "Update Maquinaria set activa = 0 where idMaquinaria = IDMAQ";
+    public static String MAQUINARIA_GETMAQUINARIA = "Select * from Maquinaria";
+    public static String MAQUINARIA_GETMAQUINARIAACTIVA = "Select * from Maquinaria where activa = true";
+    public static String MAQUINARIA_GETMAQUINARIAACTIVABYCENTRO = "Select * from Maquinaria where activa = true and idCentro = IDCEN";
+    public static String MAQUINARIA_GETMAQUINARIABYCENTRO = "Select * from Maquinaria where idCentro = IDCEN";
+    public static String MAQUINARIA_GETMAQUINARIABYCOD = "Select * from Maquinaria where codMaquinaria = 'CODMAQ'";
+    public static String MAQUINARIA_GETMAQUINARIABYID = "Select * from Maquinaria where idMaquinara = IDMAQ";
 }

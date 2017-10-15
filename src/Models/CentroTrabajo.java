@@ -14,12 +14,16 @@ public class CentroTrabajo {
     private String codCentro;
     private String descripcion;
     private boolean activo;
+    private double costoHoraMaquinaria;
+    private double costoHoraManoObra;
 
-    public CentroTrabajo(int idCentro, String codCentro, String descripcion, boolean activo) {
+    public CentroTrabajo(int idCentro, String codCentro, String descripcion, boolean activo, double costoHoraMaquinaria, double costoHoraManoObra) {
         this.idCentro = idCentro;
         this.codCentro = codCentro;
         this.descripcion = descripcion;
         this.activo = activo;
+        this.costoHoraMaquinaria = costoHoraMaquinaria;
+        this.costoHoraManoObra = costoHoraManoObra;
     }
 
     public CentroTrabajo() {
@@ -56,6 +60,20 @@ public class CentroTrabajo {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
+
+    public double getCostoHoraMaquinaria() {
+        return costoHoraMaquinaria;
+    }
+
+    public void setCostoHoraMaquinaria(double costoHoraMaquinaria) {
+        this.costoHoraMaquinaria = costoHoraMaquinaria;
+    }
+
+    public double getCostoHoraManoObra() {
+        return costoHoraManoObra;
+    }
+
+    public void setCostoHoraManoObra(double costoHoraManoObra) {
+        this.costoHoraManoObra = costoHoraManoObra;
+    }
 }
