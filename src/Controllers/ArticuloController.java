@@ -176,4 +176,24 @@ public class ArticuloController {
         }
         return articulos;
     }
+    
+    public static boolean articuloExisteByCod(String codArticulo){
+        boolean existe = false;
+        String sql = Queries.ARTICULO_ARTICULOEXISTEBYCOD;
+        sql = sql.replaceAll("CODART", codArticulo);
+        
+        try {
+        ResultSet rs = DBConnection.execSelectSQL(sql);
+        while (rs.next()){
+            int cantidad = rs.getInt("cantidad");
+            if (cantidad > 0){
+                existe = true;
+            }
+            else {existe = false;}
+        }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return existe;
+    }
 }
