@@ -190,4 +190,23 @@ public class ProductoController {
         return prod;
     }
 
+    public static boolean productoExisteByCod(String codProducto){
+        boolean existe = false;
+        String sql = Queries.PRODUCTO_PRODUCTOEXISTEBYCOD;
+        sql = sql.replaceAll("CODPROD", codProducto);
+        
+        try {
+        ResultSet rs = DBConnection.execSelectSQL(sql);
+        while (rs.next()){
+            int cantidad = rs.getInt("cantidad");
+            if (cantidad > 0){
+                existe = true;
+            }
+            else {existe = false;}
+        }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return existe;
+    }
 }
