@@ -22,6 +22,7 @@ public class Queries {
     public static String ARTICULO_GETARTICULOSBYCOD = "Select * from Articulo where codArticulo = 'CODART'";
     public static String ARTICULO_GETARTICULOSBYTIPO = "Select * from Articulo where idTipoArticulo = IDTIPO";
     public static String ARTICULO_GETARTICULOSACTIVOS = "Select * from Articulo where activo = 1";
+    public static String ARTICULO_ARTICULOEXISTEBYCOD = "Select count(*) as cantidad from Articulo where codArticulo = 'CODART'";
 
     public static String TIPOPRODUCTO_GETTIPOPRODUCTO = "Select * from TipoProducto";
     public static String TIPOPRODUCTO_GETTIPOPRODUCTOBYID = "Select * from TipoProducto where idTipoProducto = IDTIPO";
