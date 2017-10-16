@@ -5,6 +5,7 @@
  */
 package UI;
 
+import Controllers.ArticuloController;
 import Controllers.TipoArticuloController;
 import Models.TipoArticulo;
 import java.util.ArrayList;
@@ -34,6 +35,10 @@ public class AltaArticuloHelper {
     
     public int getTipoIdFromIndex(int index){ //retorna el id de TipoArticulo basado en el indice seleccionado
         return tiposHash.get(index+1).getIdTipo();
+    }
+    
+    public void darAlta(String codArticulo, String descripcion, boolean activo, String unidadMedida, int idTipoArticulo){
+        ArticuloController.altaArticulo(codArticulo, descripcion, activo, unidadMedida, idTipoArticulo);
     }
     
     

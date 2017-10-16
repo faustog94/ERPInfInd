@@ -165,7 +165,7 @@ public class AltaArticuloUI extends javax.swing.JFrame {
         int indexSeleccionado = cb_tipoArticulo.getSelectedIndex();
         int idTipoArticulo = helper.getTipoIdFromIndex(indexSeleccionado);
         if (!codArticulo.isEmpty() && !descripcion.isEmpty() && !unidadMedida.isEmpty() ){
-        ArticuloController.altaArticulo(codArticulo, descripcion, activo, unidadMedida, idTipoArticulo);
+        helper.darAlta(codArticulo, descripcion, activo, unidadMedida, idTipoArticulo);
         }
         else {JOptionPane.showMessageDialog(this, "Faltan campos por completar");}
     }//GEN-LAST:event_btn_darAltaMouseClicked
