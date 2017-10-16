@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Oct 15, 2017 at 04:18 AM
+-- Generation Time: Oct 16, 2017 at 07:17 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.0.21
 
@@ -383,13 +383,97 @@ ALTER TABLE `TipoProducto`
 -- AUTO_INCREMENT for table `Articulo`
 --
 ALTER TABLE `Articulo`
-  MODIFY `idArticulo` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `idArticulo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ArtProv`
+--
+ALTER TABLE `ArtProv`
+  MODIFY `idArtProv` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `CentroTrabajo`
+--
+ALTER TABLE `CentroTrabajo`
+  MODIFY `idCentro` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `DetalleOrdenProd`
+--
+ALTER TABLE `DetalleOrdenProd`
+  MODIFY `idDetalleOrden` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `DetalleRuta`
+--
+ALTER TABLE `DetalleRuta`
+  MODIFY `idDetalleRuta` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `EstadoOrdenProduccion`
+--
+ALTER TABLE `EstadoOrdenProduccion`
+  MODIFY `idEstOP` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `Estructura`
 --
 ALTER TABLE `Estructura`
   MODIFY `idEstructura` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Maquinaria`
+--
+ALTER TABLE `Maquinaria`
+  MODIFY `idMaquinaria` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Materiales`
+--
+ALTER TABLE `Materiales`
+  MODIFY `idMateriales` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `OrdenProduccion`
+--
+ALTER TABLE `OrdenProduccion`
+  MODIFY `idOrdenProduccion` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Producto`
+--
+ALTER TABLE `Producto`
+  MODIFY `idProducto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `Proveedor`
+--
+ALTER TABLE `Proveedor`
+  MODIFY `idProveedor` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `RutaFabricacion`
+--
+ALTER TABLE `RutaFabricacion`
+  MODIFY `idRuta` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `TipoArticulo`
+--
+ALTER TABLE `TipoArticulo`
+  MODIFY `idTipoArticulo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `TipoMateriales`
+--
+ALTER TABLE `TipoMateriales`
+  MODIFY `idTipoMateriales` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `TipoProducto`
+--
+ALTER TABLE `TipoProducto`
+  MODIFY `idTipoProducto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
