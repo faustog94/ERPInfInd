@@ -35,6 +35,7 @@ public class Queries {
     public static String PRODUCTO_GETPRODUCTOBYID = "Select * from Producto where idProducto = IDPROD";
     public static String PRODUCTO_GETPRODUCTOBYCOD = "Select * from Producto where codProducto = 'CODPROD'";
     public static String PRODUCTO_PRODUCTOEXISTEBYCOD = "Select count(*) as cantidad from Producto where codProducto = 'CODPROD'";
+    public static String PRODUCTO_PRODUCTOTIENEPRODUCTOSFINALES = "Select count(*) as cantidad from Producto where idProductoBase = IDPROD";
 
     public static String CENTROTRABAJO_ALTACENTRO = "Insert into CentroTrabajo (codCentro, descripcion, activo, costoHoraMaquinaria, costoHoraManoObra) values ('CODCENTRO', 'DESC', ACT, CMAQ, CMO)";
     public static String CENTROTRABAJO_MODIFICARCENTRO = "Update CentroTrabajo set codCentro = 'CODCENTRO', descripcion = 'DESC', activo = ACT, costoHoraMaquinaria = CMAQ, costoHoraManoObra = CMO where idCentro = IDCENTRO";

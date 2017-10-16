@@ -209,4 +209,24 @@ public class ProductoController {
         }
         return existe;
     }
+    
+    public static boolean productoTieneProductosFinales(int idProducto){
+        boolean tieneProd = false;
+        String sql = Queries.PRODUCTO_PRODUCTOTIENEPRODUCTOSFINALES;
+        sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
+        
+        try {
+        ResultSet rs = DBConnection.execSelectSQL(sql);
+        while (rs.next()){
+            int cantidad = rs.getInt("cantidad");
+            if (cantidad > 0){
+                tieneProd = true;
+            }
+            else {tieneProd = false;}
+        }
+        } catch (SQLException ex){
+            ex.printStackTrace();
+        }
+        return tieneProd;
+    }
 }
