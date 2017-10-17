@@ -38,12 +38,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="lbl_descripcion" max="32767" attributes="0"/>
-                                  <Component id="lbl_codArticulo" max="32767" attributes="0"/>
+                                  <Component id="lbl_codProducto" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="txt_descripcion" pref="301" max="32767" attributes="0"/>
-                                  <Component id="txt_codArticulo" max="32767" attributes="0"/>
+                                  <Component id="txt_codProducto" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -76,8 +76,8 @@
               <Component id="jLabel1" min="-2" pref="22" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lbl_codArticulo" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="txt_codArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_codProducto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="txt_codProducto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_buscarProd" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -120,7 +120,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lbl_codArticulo">
+    <Component class="javax.swing.JLabel" name="lbl_codProducto">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo del producto"/>
       </Properties>
@@ -160,7 +160,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chb_activoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txt_codArticulo">
+    <Component class="javax.swing.JTextField" name="txt_codProducto">
     </Component>
     <Component class="javax.swing.JTextField" name="txt_descripcion">
     </Component>

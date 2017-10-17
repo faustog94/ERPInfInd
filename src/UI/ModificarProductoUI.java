@@ -46,14 +46,14 @@ public class ModificarProductoUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbl_codArticulo = new javax.swing.JLabel();
+        lbl_codProducto = new javax.swing.JLabel();
         lbl_descripcion = new javax.swing.JLabel();
         lbl_activo = new javax.swing.JLabel();
         lbl_unidadMedida = new javax.swing.JLabel();
         lbl_prodPadre = new javax.swing.JLabel();
         cb_productos = new javax.swing.JComboBox<>();
         chb_activo = new javax.swing.JCheckBox();
-        txt_codArticulo = new javax.swing.JTextField();
+        txt_codProducto = new javax.swing.JTextField();
         txt_descripcion = new javax.swing.JTextField();
         txt_unidadMedida = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -64,7 +64,7 @@ public class ModificarProductoUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbl_codArticulo.setText("Código del producto");
+        lbl_codProducto.setText("Código del producto");
 
         lbl_descripcion.setText("Descripcion");
 
@@ -130,11 +130,11 @@ public class ModificarProductoUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lbl_descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbl_codArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lbl_codProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txt_descripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                                    .addComponent(txt_codArticulo)))
+                                    .addComponent(txt_codProducto)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lbl_unidadMedida)
@@ -157,8 +157,8 @@ public class ModificarProductoUI extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_codArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_codArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscarProd))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -196,7 +196,7 @@ public class ModificarProductoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_chb_activoActionPerformed
 
     private void btn_modificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_modificarMouseClicked
-        String codProducto = txt_codArticulo.getText();
+        String codProducto = txt_codProducto.getText();
         String descripcion = txt_descripcion.getText();
         boolean activo = chb_activo.isSelected();
         String unidadMedida = txt_unidadMedida.getText();
@@ -244,7 +244,7 @@ public class ModificarProductoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_chb_prodBaseActionPerformed
 
     private void btn_buscarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_buscarProdMouseClicked
-        String codProducto = txt_codArticulo.getText();
+        String codProducto = txt_codProducto.getText();
         if (codProducto.isEmpty()){ //no se ha colocado un cod
             JOptionPane.showMessageDialog(this, "Ingrese un código");
         }else { //Hay código
@@ -284,12 +284,12 @@ public class ModificarProductoUI extends javax.swing.JFrame {
     private javax.swing.JCheckBox chb_prodBase;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_activo;
-    private javax.swing.JLabel lbl_codArticulo;
+    private javax.swing.JLabel lbl_codProducto;
     private javax.swing.JLabel lbl_descripcion;
     private javax.swing.JLabel lbl_prodBase;
     private javax.swing.JLabel lbl_prodPadre;
     private javax.swing.JLabel lbl_unidadMedida;
-    private javax.swing.JTextField txt_codArticulo;
+    private javax.swing.JTextField txt_codProducto;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_unidadMedida;
     // End of variables declaration//GEN-END:variables
