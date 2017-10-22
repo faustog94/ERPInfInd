@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Arrays;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  * @author franco
  */
 public class AltaEstructuraUI extends javax.swing.JFrame {
-    
+    DefaultListModel<String> lmodel;
     //Instancia de helper
     AltaEstructuraHelper helper = new AltaEstructuraHelper();
     //Instancia de producto
@@ -34,11 +35,11 @@ public class AltaEstructuraUI extends javax.swing.JFrame {
         chb_activo.setSelected(true);
         lbl_descripcion.setText(""); //Para no perderlo al momento de diseñar, se pone en blanco al iniciar
         articulos = helper.obtenerArticulos();
-        DefaultListModel<String> model = new DefaultListModel();
+        lmodel = new DefaultListModel();
         for(String desc : articulos.keySet()){
-            model.addElement(desc);
+            lmodel.addElement(desc);
         }
-        list_arts.setModel(model);
+        list_arts.setModel(lmodel);
     }
 
     /**
@@ -262,8 +263,8 @@ public class AltaEstructuraUI extends javax.swing.JFrame {
 
         //Quita de la lista
         int index = list_arts.getSelectedIndex();
-        DefaultListModel<String> lmodel = (DefaultListModel) list_arts.getModel();
         lmodel.removeElementAt(index);
+        list_arts.setModel(lmodel);
     }//GEN-LAST:event_btn_añadirMouseClicked
 
     private void btn_quitarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_quitarMouseClicked
@@ -275,17 +276,16 @@ public class AltaEstructuraUI extends javax.swing.JFrame {
         //Añade a la lista
         int row = tb_artsSelec.getSelectedRow();
         String descr = String.valueOf(tb_artsSelec.getValueAt(row, 0)); //La columna siempre es 0
-        DefaultListModel<String> lmodel = (DefaultListModel) list_arts.getModel();
         lmodel.addElement(descr);
         //Las próximas líneas sirven para reordenar la lista una vez que se añade el elemento
         String[] array = Arrays.copyOf(lmodel.toArray(), lmodel.toArray().length, String[].class);
         Arrays.sort(array);
-        list_arts.setListData(array);
+        list_arts.setModel(nuevoListModel(array));
         
         //Quita de la tabla
         DefaultTableModel tmodel = (DefaultTableModel)tb_artsSelec.getModel();
         tmodel.removeRow(row);
-
+        
     }//GEN-LAST:event_btn_quitarMouseClicked
 
     private void txt_versionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_versionActionPerformed
@@ -354,4 +354,12 @@ public class AltaEstructuraUI extends javax.swing.JFrame {
     private javax.swing.JTextField txt_codProducto;
     private javax.swing.JTextField txt_version;
     // End of variables declaration//GEN-END:variables
+
+    private DefaultListModel<String> nuevoListModel(String[] array) {
+        DefaultListModel<String> model = new DefaultListModel();
+        for(String valor : array){
+            model.addElement(valor);
+        }
+        return model;
+    }
 }
