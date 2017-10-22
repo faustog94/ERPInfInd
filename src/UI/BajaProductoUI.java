@@ -38,7 +38,7 @@ public class BajaProductoUI extends javax.swing.JFrame {
     private void initComponents() {
 
         lbl_codArticulo = new javax.swing.JLabel();
-        txt_codArticulo = new javax.swing.JTextField();
+        txt_codProducto = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btn_baja = new javax.swing.JButton();
         btn_buscarProd = new javax.swing.JButton();
@@ -123,7 +123,7 @@ public class BajaProductoUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lbl_codArticulo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_codArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                         .addComponent(btn_buscarProd)))
                 .addGap(26, 26, 26))
@@ -136,7 +136,7 @@ public class BajaProductoUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbl_codArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_codArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_codProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_buscarProd))
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -186,7 +186,7 @@ public class BajaProductoUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_bajaMouseClicked
 
     private void btn_buscarProdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_buscarProdMouseClicked
-        String codProducto = txt_codArticulo.getText();
+        String codProducto = txt_codProducto.getText();
         if (codProducto.isEmpty()) { //no se ha colocado un cod
             JOptionPane.showMessageDialog(this, "Ingrese un código");
         } else { //Hay código
@@ -230,6 +230,6 @@ public class BajaProductoUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_codArticulo;
     private javax.swing.JTable tb_producto;
-    private javax.swing.JTextField txt_codArticulo;
+    private javax.swing.JTextField txt_codProducto;
     // End of variables declaration//GEN-END:variables
 }

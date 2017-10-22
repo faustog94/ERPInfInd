@@ -72,7 +72,7 @@ public class Queries {
     public static String ESTRUCTURA_GETESTRUCTURAACTIVABYPRODUCTO = "Select * from Estructura where idProducto = IDPROD and activo = 1";
     public static String ESTRUCTURA_GETESTRUCTURASBYPRODUCTOBYVERSION = "Select * from Estructura where idProducto = IDPROD and version = 'VER'";
     public static String ESTRUCTURA_GETESTRUCTURABYID = "Select * from Estructura where idEstructura = IDEST";
-    public static String ESTRUCTURA_EXISTEESTRUCTURACONARTICULO = "Select count(*) as cantidad from Estructura idArticulo = IDART and activo = 1";
+    public static String ESTRUCTURA_EXISTEESTRUCTURACONARTICULO = "Select count(*) as cantidad from Estructura where idArticulo = IDART and activo = true";
     
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCION = "Select * from EstadoOrdenProduccion";
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCIONBYID = "Select * from EstadoOrdenProduccion where idEstOP = IDEST";
