@@ -53,26 +53,25 @@ public class EstructuraController {
     public static void bajaEstructura(int idProducto, String version) {
         //Tengo que chequear si existe alguna Orden de Produccion pendiente o en curso.
         boolean existeOrden = DetalleOrdenProdController.prodTieneOrdenActiva(idProducto);
-        if (existeOrden == false){
+        if (existeOrden == false) {
             ArrayList<Estructura> estructuras = getEstructuraActivaByProductoByVersion(idProducto, version);
-            for(int i = 0 ; i < estructuras.size() ; i++){
+            for (int i = 0; i < estructuras.size(); i++) {
                 int idEstructura = estructuras.get(i).getIdEstructura();
                 bajaEstructuraIndividual(idEstructura);
             }
-        }
-        else {
+        } else {
             //Existe una orden activa, mostrar mensaje de error
         }
     }
 
-    public static void bajaEstructuraIndividual(int idEstructura){
+    public static void bajaEstructuraIndividual(int idEstructura) {
         String sql = Queries.ESTRUCTURA_BAJAESTRUCTURAINDIVIDUAL;
         sql = sql.replaceAll("IDEST", String.valueOf(idEstructura));
 
         DBConnection.execSQL(sql);
     }
 
-    public static void bajaEstructurasProducto(int idProducto){
+    public static void bajaEstructurasProducto(int idProducto) {
         String sql = Queries.ESTRUCTURA_BAJAESTRUCTURASPRODUCTO;
         sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
 
@@ -169,7 +168,8 @@ public class EstructuraController {
         }
         return estructuras;
     }
-    public static Estructura getEstructuraById(int idEstructura){
+
+    public static Estructura getEstructuraById(int idEstructura) {
         Estructura estructura = new Estructura();
         String sql = Queries.ESTRUCTURA_GETESTRUCTURABYID;
         sql = sql.replaceAll("IDEST", String.valueOf(idEstructura));
@@ -182,7 +182,7 @@ public class EstructuraController {
                 String version = rs.getString("version");
                 int idProducto = rs.getInt("idProducto");
                 int idArticulo = rs.getInt("idArticulo");
-                
+
                 estructura.setIdEstructura(idEstructura);
                 estructura.setCantidad(cantidad);
                 estructura.setActivo(activo);
@@ -219,7 +219,7 @@ public class EstructuraController {
         return estructuras;
     }
 
-    public static boolean existeEstructuraconArticulo(int idArticulo){
+    public static boolean existeEstructuraconArticulo(int idArticulo) {
         boolean existe = false;
         String sql = Queries.ESTRUCTURA_EXISTEESTRUCTURACONARTICULO;
         sql = sql.replaceAll("IDART", String.valueOf(idArticulo));
@@ -228,14 +228,35 @@ public class EstructuraController {
             while (rs.next()) {
                 int cantidad = rs.getInt("cantidad");
 
-                if (cantidad > 0){
+                if (cantidad > 0) {
                     existe = true;
+                } else {
+                    existe = false;
                 }
-                else {existe = false;}
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return existe;
+    }
+
+    public static boolean productoTieneEstructura(int idProducto) {
+        boolean tiene = false;
+        String sql = Queries.ESTRUCTURA_PRODUCTOTIENEESTRUCTURA;
+        sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
+        try {
+            ResultSet rs = DBConnection.execSelectSQL(sql);
+            while (rs.next()) {
+                int cantidad = rs.getInt("cantidad");
+                if (cantidad > 0) {
+                    tiene = true;
+                } else {
+                    tiene = false;
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return tiene;
     }
 }

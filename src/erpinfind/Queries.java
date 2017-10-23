@@ -61,7 +61,7 @@ public class Queries {
     public static String ARTPROV_GETARTPROVBYPROVEEDOR = "Select * from ArtProv where idProveedor = IDPROV";
     public static String ARTPROV_GETARTPROVBYARTICULO = "Select * from ArtProv where idArticulo = IDART";
     public static String ARTPROV_GETARTPROVBYID = "Select * from ArtProv where idArtProv = IDARTPROV";
-    
+
     public static String ESTRUCTURA_ALTAESTRUCTURA = "Insert into Estructura (cantidad, activo, version, idProducto, idArticulo) Values (CANT, ACT, 'VER', IDPROD, IDART)";
     public static String ESTRUCTURA_MODIFICARESTRUCTURA = "Update Estructura set cantidad = CANT, activo = ACT, version = 'VER', idProducto = IDPROD, idArticulo = IDART where idEstructura = IDEST";
     public static String ESTRUCTURA_BAJAESTRUCTURAINDIVIDUAL = "Update Estructura set activo = 0 where idEstructura = IDEST";
@@ -73,10 +73,11 @@ public class Queries {
     public static String ESTRUCTURA_GETESTRUCTURASBYPRODUCTOBYVERSION = "Select * from Estructura where idProducto = IDPROD and version = 'VER'";
     public static String ESTRUCTURA_GETESTRUCTURABYID = "Select * from Estructura where idEstructura = IDEST";
     public static String ESTRUCTURA_EXISTEESTRUCTURACONARTICULO = "Select count(*) as cantidad from Estructura where idArticulo = IDART and activo = true";
-    
+    public static String ESTRUCTURA_PRODUCTOTIENEESTRUCTURA = "Select count(*) as cantidad from Estructura where idProducto = IDPROD";
+
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCION = "Select * from EstadoOrdenProduccion";
     public static String ESTADOORDENPRODUCCION_GETESTADOORDENPRODUCCIONBYID = "Select * from EstadoOrdenProduccion where idEstOP = IDEST";
-    
+
     public static String ORDENPRODUCCION_ALTAORDENPRODUCCION = "Insert into OrdenProduccion (fechaPedido, idEstOP) Values ('FECHA', IDEST)";
     public static String ORDENPRODUCCION_MODIFICARORDENPRODUCCION = "Update OrdenProduccion set fechaPedido = 'FECHA', idEstOP = IDEST where idOrdenProduccion = IDOP";
     public static String ORDENPRODUCCION_BAJAORDENPRODUCCION = "Update OrdenProduccion set idEstOP = IDEST where idOrdenProduccion = IDOP";
@@ -86,7 +87,6 @@ public class Queries {
     public static String ORDENPRODUCCION_GETORDENPRODUCCIONBYID = "Select * from OrdenProduccion where idOrdenProduccion = IDOP";
     public static String ORDENPRODUCCION_ORDENISACTIVA = "Select count(*) as cantidad from OrdenProduccion where (idEstOP = IDESTA or idEstOP = IDESTB) and idOrdenProduccion = IDOP";
 
-    
     public static String DETALLENORDENPROD_ALTADETALLEORDENPROD = "Insert into DetalleOrdenProd (cantidad, idProducto, idOrdenProduccion) Values (CANT, IDPROD, IDOP)";
     public static String DETALLENORDENPROD_MODIFICARDETALLEORDENPROD = "Update DetalleOrdenProd set cantidad = CANT, idProducto = IDPROD, idOrdenProduccion = IDOP where idDetalleOrden = IDDET";
     public static String DETALLENORDENPROD_BAJADETALLEORDENPROD = "Delete from DetalleOrdenProd where idDetalleOrden = IDDET";
@@ -94,7 +94,7 @@ public class Queries {
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYORDENPRODUCCION = "Select * from DetalleOrdenProd where idOrdenProduccion = IDOP";
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYPRODUCTO = "Select * from DetalleOrdenProd where idProducto = IDPROD";
     public static String DETALLENORDENPROD_GETDETALLEORDENPRODBYID = "Select * from DetalleOrdenProd where idDetalleOrden = IDDET";
-    
+
     public static String RUTAFABRICACION_ALTARUTAFABRICACION = "Insert into RutaFabricacion (activa, version, vigenteDesde, idProducto) Values (ACT, 'VER', 'VIG', IDPROD)";
     public static String RUTAFABRICACION_MODIFICARRUTAFABRICACION = "Update RutaFabricacion set activa = ACT, version = 'VER', vigenteDesde = 'VIG', idProducto = IDPROD where idRuta = IDRUT";
     public static String RUTAFABRICACION_BAJARUTAFABRICACIONINDIVIDUAL = "Update RutaFabricacion set activa = 0 where idRuta = IDRUT";
@@ -104,8 +104,8 @@ public class Queries {
     public static String RUTAFABRICACION_GETRUTAFABRICACIONBYPRODUCTOACTIVA = "Select * from RutaFabricacion where idProducto = IDPROD and activa = true";
     public static String RUTAFABRICACION_GETRUTAFABRICACIONBYID = "Select * from RutaFabricacion where idRuta = IDRUT";
     public static String RUTAFABRICACION_RUTAISACTIVA = "Select count(*) as cantidad from RutaFabricacion where idRuta = IDRUT and activa = 0";
+    public static String RUTAFABRICACION_PRODUCTOTIENERUTA = "Select count(*) as cantidad from RutaFabricacion where idProducto = IDPROD";
 
-    
     public static String DETALLERUTA_ALTADETALLERUTA = "Insert into DetalleRuta (orden, tiempoManoObra, tiempoMaquina, tiempoReposo, idRuta, idCentro, idEstructura) Values (ORD, TMO, TMAQ, TREP, IDRUT, IDCEN, IDESTR)";
     public static String DETALLERUTA_MODIFICARDETALLERUTA = "Update DetalleRuta set orden = ORD, tiempoManoObra = TMO, tiempoMaquina = TMAQ, tiempoReposo = TREP, idRuta = IDRUT, idCentro = IDCEN, idEstructura = IDESTR where idDetalleRuta = IDDET";
     //public static String DETALLERUTA_BAJADETALLERUTA = ""; //No debería ser necesaria
@@ -114,10 +114,10 @@ public class Queries {
     public static String DETALLERUTA_GETDETALLERUTABYCENTRO = "Select * from DetalleRuta where idCentro = IDCEN";
     public static String DETALLERUTA_GETDETALLERUTABYESTRUCTURA = "Select * from DetalleRuta where idEstructura = IDESTR";
     public static String DETALLERUTA_GETDETALLERUTABYID = "Select * from DetalleRuta where idDetalleRuta = IDDET";
-    
+
     public static String TIPOMATERIALES_GETTIPOMATERIALES = "Select * from TipoMateriales";
     public static String TIPOMATERIALES_GETTIPOMATERIALESBYID = "Select * from TipoMateriales where idTipoMateriales = IDTM";
-    
+
     public static String MATERIALES_ALTAMATERIALES = "Insert into Materiales (cantidad, idDetalleRuta, idArticulo, idTipoMateriales) Values (CANT, IDDET, IDART, IDTM)";
     public static String MATERIALES_MODIFICARMATERIALES = "Update Materiales set cantidad = CANT, idDetalleRuta = IDDET, idArticulo = IDART, idTipoMateriales = IDTM where idMateriales = IDMAT";
     public static String MATERIALES_BAJAMATERIALES = "Delete from Materiales where idMateriales = IDMAT";
