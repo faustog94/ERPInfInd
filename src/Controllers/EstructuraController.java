@@ -54,7 +54,7 @@ public class EstructuraController {
         //Tengo que chequear si existe alguna Orden de Produccion pendiente o en curso.
         boolean existeOrden = DetalleOrdenProdController.prodTieneOrdenActiva(idProducto);
         if (existeOrden == false) {
-            ArrayList<Estructura> estructuras = getEstructuraActivaByProductoByVersion(idProducto, version);
+            ArrayList<Estructura> estructuras = getEstructuraByProductoByVersion(idProducto, version);
             for (int i = 0; i < estructuras.size(); i++) {
                 int idEstructura = estructuras.get(i).getIdEstructura();
                 bajaEstructuraIndividual(idEstructura);
@@ -196,7 +196,7 @@ public class EstructuraController {
         return estructura;
     }
 
-    public static ArrayList<Estructura> getEstructuraActivaByProductoByVersion(int idProducto, String version) {
+    public static ArrayList<Estructura> getEstructuraByProductoByVersion(int idProducto, String version) {
         ArrayList<Estructura> estructuras = new ArrayList();
         String sql = Queries.ESTRUCTURA_GETESTRUCTURASBYPRODUCTOBYVERSION;
         sql = sql.replaceAll("IDPROD", String.valueOf(idProducto));
