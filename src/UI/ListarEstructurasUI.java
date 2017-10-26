@@ -36,6 +36,8 @@ public class ListarEstructurasUI extends javax.swing.JFrame {
     ArrayList<Estructura> estructuras;
     //Instancias de Estructura correspondiente a la version
     ArrayList<Estructura> estVersion;
+    //Instancias de Estructura correspondientes al producto base
+    ArrayList<Estructura> estPadre;
     //Listado de versiones
     ArrayList<String> versiones = new ArrayList();
     //Version seleccionada
@@ -159,14 +161,14 @@ public class ListarEstructurasUI extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Articulo", "Cantidad"
+                "Articulo", "Cantidad", "Propio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -184,6 +186,7 @@ public class ListarEstructurasUI extends javax.swing.JFrame {
         if (tb_detalleEstructura.getColumnModel().getColumnCount() > 0) {
             tb_detalleEstructura.getColumnModel().getColumn(0).setResizable(false);
             tb_detalleEstructura.getColumnModel().getColumn(1).setResizable(false);
+            tb_detalleEstructura.getColumnModel().getColumn(2).setResizable(false);
         }
 
         chb_soloProdActivos.setText("Solo productos activos");
@@ -321,9 +324,17 @@ public class ListarEstructurasUI extends javax.swing.JFrame {
     private void poblarTablaEst(){
         tmodelEst.setRowCount(0);
         estVersion = helper.obtenerEstructurasVersion(prodSeleccionado.getIdProducto(), versionSeleccionada);
-        for (Estructura est : estVersion){
-            Object[] row = new Object[]{helper.obtenerArt(est.getIdArticulo()), est.getCantidad()};
+        for (Estructura est : estVersion) {
+            Object[] row = new Object[]{helper.obtenerArt(est.getIdArticulo()), est.getCantidad(), true};
             tmodelEst.addRow(row);
+        }
+
+        if (prodSeleccionado.getIdProductoBase() != 0) {
+            estPadre = helper.obtenerEstructurasPadre(prodSeleccionado.getIdProductoBase());
+            for (Estructura est : estPadre) {
+                Object[] row = new Object[]{helper.obtenerArt(est.getIdArticulo()), est.getCantidad(), false};
+                tmodelEst.addRow(row);
+            }
         }
     }
 

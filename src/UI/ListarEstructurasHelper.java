@@ -43,4 +43,8 @@ public class ListarEstructurasHelper {
         }
         return art.getCodArticulo() + " - " + art.getDescripcion();
     }
+    
+    public ArrayList<Estructura> obtenerEstructurasPadre(int idProducto){
+        return EstructuraController.getEstructuraActivaByProducto(idProducto);
+    }
 }
