@@ -106,18 +106,20 @@ public class CentroTrabajoController {
         sql = sql.replaceAll("IDCENTRO", String.valueOf(idCentro));
         try {
             ResultSet rs = DBConnection.execSelectSQL(sql);
-            String codCentro = rs.getString("codCentro");
-            String descripcion = rs.getString("descripcion");
-            boolean activo = rs.getBoolean("activo");
-            double costoHoraMaquinaria = rs.getDouble("costoHoraMaquinaria");
-            double costoHoraManoObra = rs.getDouble("costoHoraManoObra");
+            while (rs.next()) {
+                String codCentro = rs.getString("codCentro");
+                String descripcion = rs.getString("descripcion");
+                boolean activo = rs.getBoolean("activo");
+                double costoHoraMaquinaria = rs.getDouble("costoHoraMaquinaria");
+                double costoHoraManoObra = rs.getDouble("costoHoraManoObra");
 
-            centro.setIdCentro(idCentro);
-            centro.setCodCentro(codCentro);
-            centro.setDescripcion(descripcion);
-            centro.setActivo(activo);
-            centro.setCostoHoraMaquinaria(costoHoraMaquinaria);
-            centro.setCostoHoraManoObra(costoHoraManoObra);
+                centro.setIdCentro(idCentro);
+                centro.setCodCentro(codCentro);
+                centro.setDescripcion(descripcion);
+                centro.setActivo(activo);
+                centro.setCostoHoraMaquinaria(costoHoraMaquinaria);
+                centro.setCostoHoraManoObra(costoHoraManoObra);
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -131,18 +133,20 @@ public class CentroTrabajoController {
         sql = sql.replaceAll("CODCENTRO", codCentro);
         try {
             ResultSet rs = DBConnection.execSelectSQL(sql);
-            int idCentro = rs.getInt("idCentro");
-            String descripcion = rs.getString("descripcion");
-            boolean activo = rs.getBoolean("activo");
-            double costoHoraMaquinaria = rs.getDouble("costoHoraMaquinaria");
-            double costoHoraManoObra = rs.getDouble("costoHoraManoObra");
+            while (rs.next()) {
+                int idCentro = rs.getInt("idCentro");
+                String descripcion = rs.getString("descripcion");
+                boolean activo = rs.getBoolean("activo");
+                double costoHoraMaquinaria = rs.getDouble("costoHoraMaquinaria");
+                double costoHoraManoObra = rs.getDouble("costoHoraManoObra");
 
-            centro.setIdCentro(idCentro);
-            centro.setCodCentro(codCentro);
-            centro.setDescripcion(descripcion);
-            centro.setActivo(activo);
-            centro.setCostoHoraMaquinaria(costoHoraMaquinaria);
-            centro.setCostoHoraManoObra(costoHoraManoObra);
+                centro.setIdCentro(idCentro);
+                centro.setCodCentro(codCentro);
+                centro.setDescripcion(descripcion);
+                centro.setActivo(activo);
+                centro.setCostoHoraMaquinaria(costoHoraMaquinaria);
+                centro.setCostoHoraManoObra(costoHoraManoObra);
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
