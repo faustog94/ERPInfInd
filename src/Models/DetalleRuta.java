@@ -28,20 +28,15 @@ public class DetalleRuta {
     private int idCentro;
     private CentroTrabajo centro;
     private boolean centroBuscado;
-    //Puntero Estructura
-    private int idEstructura;
-    private Estructura estructura;
-    private boolean estructuraBuscada;
     
     
     
     public DetalleRuta() {
         this.rutaBuscada = false;
         this.centroBuscado = false;
-        this.estructuraBuscada = false;
     }
 
-    public DetalleRuta(int idDetalleRuta, int orden, double tiempoManoObra, double tiempoMaquina, double tiempoReposo, int idRuta, int idCentro, int idEstructura) {
+    public DetalleRuta(int idDetalleRuta, int orden, double tiempoManoObra, double tiempoMaquina, double tiempoReposo, int idRuta, int idCentro) {
         this.idDetalleRuta = idDetalleRuta;
         this.orden = orden;
         this.tiempoManoObra = tiempoManoObra;
@@ -49,10 +44,8 @@ public class DetalleRuta {
         this.tiempoReposo = tiempoReposo;
         this.idRuta = idRuta;
         this.idCentro = idCentro;
-        this.idEstructura = idEstructura;
         this.rutaBuscada = false;
         this.centroBuscado = false;
-        this.estructuraBuscada = false;
     }
 
     public int getIdDetalleRuta() {
@@ -150,34 +143,5 @@ public class DetalleRuta {
     public void setCentroBuscado(boolean centroBuscado) {
         this.centroBuscado = centroBuscado;
     }
-
-    public int getIdEstructura() {
-        return idEstructura;
-    }
-
-    public void setIdEstructura(int idEstructura) {
-        this.idEstructura = idEstructura;
-    }
-
-    public Estructura getEstructura() {
-        if (this.estructuraBuscada == false){
-            this.estructura = EstructuraController.getEstructuraById(idEstructura);
-            this.estructuraBuscada = true;
-        }
-        return estructura;
-    }
-
-    public void setEstructura(Estructura estructura) {
-        this.estructura = estructura;
-    }
-
-    public boolean isEstructuraBuscada() {
-        return estructuraBuscada;
-    }
-
-    public void setEstructuraBuscada(boolean estructuraBuscada) {
-        this.estructuraBuscada = estructuraBuscada;
-    }
-    
     
 }
