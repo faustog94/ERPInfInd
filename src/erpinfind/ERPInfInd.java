@@ -5,13 +5,8 @@
  */
 package erpinfind;
 
-import Controllers.ArticuloController;
-import Models.Articulo;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import UI.Main;
+
 
 /**
  *
@@ -23,7 +18,7 @@ public class ERPInfInd {
      * @param args the command line arguments
      */
     public static void main(String[] args) {       
-        System.out.println(ArticuloController.getArticuloById(1).getDescripcion());
+        new Main().setVisible(true);
     }
     
 }
