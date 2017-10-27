@@ -105,6 +105,7 @@ public class Queries {
     public static String RUTAFABRICACION_GETRUTAFABRICACIONBYID = "Select * from RutaFabricacion where idRuta = IDRUT";
     public static String RUTAFABRICACION_RUTAISACTIVA = "Select count(*) as cantidad from RutaFabricacion where idRuta = IDRUT and activa = 0";
     public static String RUTAFABRICACION_PRODUCTOTIENERUTA = "Select count(*) as cantidad from RutaFabricacion where idProducto = IDPROD";
+    public static String RUTAFABRICACION_LASTINSERTEDID = "Select max(idRuta) as id from RutaFabricacion";
 
     public static String DETALLERUTA_ALTADETALLERUTA = "Insert into DetalleRuta (orden, tiempoManoObra, tiempoMaquina, tiempoReposo, idRuta, idCentro) Values (ORD, TMO, TMAQ, TREP, IDRUT, IDCEN)";
     public static String DETALLERUTA_MODIFICARDETALLERUTA = "Update DetalleRuta set orden = ORD, tiempoManoObra = TMO, tiempoMaquina = TMAQ, tiempoReposo = TREP, idRuta = IDRUT, idCentro = IDCEN where idDetalleRuta = IDDET";
@@ -113,11 +114,12 @@ public class Queries {
     public static String DETALLERUTA_GETDETALLERUTABYRUTA = "Select * from DetalleRuta where idRuta = IDRUT";
     public static String DETALLERUTA_GETDETALLERUTABYCENTRO = "Select * from DetalleRuta where idCentro = IDCEN";
     public static String DETALLERUTA_GETDETALLERUTABYID = "Select * from DetalleRuta where idDetalleRuta = IDDET";
+    public static String DETALLERUTA_LASTINSERTEDID = "Select max(idDetalleRuta) as id from DetalleRuta";
 
     public static String TIPOMATERIALES_GETTIPOMATERIALES = "Select * from TipoMateriales";
     public static String TIPOMATERIALES_GETTIPOMATERIALESBYID = "Select * from TipoMateriales where idTipoMateriales = IDTM";
 
-    public static String MATERIALES_ALTAMATERIALES = "Insert into Materiales (cantidad, idDetalleRuta, idArticulo, idTipoMateriales) Values (CANT, IDDET, IDART, IDTM)";
+    public static String MATERIALES_ALTAMATERIALES = "Insert into Materiales (cantidad, idTipo, idDetRuta, idArticulo) Values (CANT, IDTM, IDDET, IDART)";
     public static String MATERIALES_MODIFICARMATERIALES = "Update Materiales set cantidad = CANT, idDetalleRuta = IDDET, idArticulo = IDART, idTipoMateriales = IDTM where idMateriales = IDMAT";
     public static String MATERIALES_BAJAMATERIALES = "Delete from Materiales where idMateriales = IDMAT";
     public static String MATERIALES_GETMATERIALES = "Select * from Materiales";
@@ -125,7 +127,7 @@ public class Queries {
     public static String MATERIALES_GETMATERIALESBYARTICULO = "Select * from Materiales where idArticulo = IDART";
     public static String MATERIALES_GETMATERIALESBYTIPO = "Select * from Materiales where idTipoMateriales = IDTM";
     public static String MATERIALES_GETMATERIALESBYTIPOBYDETALLE = "Select * from Materiales where idTipoMateriales = IDTM and idDetalleRuta = IDDET";
-    public static String MATERIALES_GETMATERIALESBYID = "Select * from Materiales where idMateriales = IDMAT";
+    public static String MATERIALES_GETMATERIALESBYID = "Select * from Materiales as id where idMateriales = IDMAT";
 
     public static String MAQUINARIA_ALTAMAQUINARIA = "Insert into Maquinaria (codMaquinaria, descripcion, idCentro, activa) Values ('CODMAQ', 'DESC', IDCEN, ACT)";
     public static String MAQUINARIA_MODIFICARMAQUINARIA = "Update Maquinaria set codMaquinaria = 'CODMAQ', descripcion = 'DESC', idCentro = IDCEN, activa = ACT where idMaquinaria = IDMAQ";

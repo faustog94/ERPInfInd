@@ -159,4 +159,19 @@ public class DetalleRutaController {
         }
         return rutaActiva;
     }
+    
+    public static int getLastInsertedId(){
+        String sql = Queries.DETALLERUTA_LASTINSERTEDID;
+        int ultid = 0;
+        try {
+            ResultSet rs = DBConnection.execSelectSQL(sql);
+            while (rs.next()) {
+                ultid = rs.getInt("id");
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return ultid;
+    }
 }
